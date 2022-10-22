@@ -8,7 +8,7 @@ on:
       codenames:
         description: 'Stringified JSON object listing target distro codenames'
         required: true
-        default: '["bullseye"]'
+        default: '["sid"]'
         type: string
       architectures:
         description: 'Stringified JSON object listing target architectures'
@@ -107,22 +107,22 @@ jobs:
             ./artifact/**/*.deb
             ./artifact/**/*.sha256sum
 
-      - name: Make Sure Release Directory Exists
-        uses: appleboy/ssh-action@v0.1.4
-        with:
-          host: ${{ secrets.deploy-host }}
-          username: ${{ secrets.deploy-user }}
-          key: ${{ secrets.deploy-key }}
-          script_stop: true
-          script: |-
-            mkdir -p /srv/repository/releases/server/${{ inputs.distro }}/versions/jellyfin-ffmpeg/${{ steps.set_version.outputs.no-v }}/
+#      - name: Make Sure Release Directory Exists
+#        uses: appleboy/ssh-action@v0.1.4
+#        with:
+#          host: ${{ secrets.deploy-host }}
+#          username: ${{ secrets.deploy-user }}
+#          key: ${{ secrets.deploy-key }}
+#          script_stop: true
+#          script: |-
+#            mkdir -p /srv/repository/releases/server/${{ inputs.distro }}/versions/jellyfin-ffmpeg/${{ steps.set_version.outputs.no-v }}/
 
-      - name: Upload Release Assets
-        uses: burnett01/rsync-deployments@5.2
-        with:
-          switches: -vrptz
-          path: ./artifact/*
-          remote_path: /srv/repository/releases/server/${{ inputs.distro }}/versions/jellyfin-ffmpeg/${{ steps.set_version.outputs.no-v }}/
-          remote_host: ${{ secrets.deploy-host }}
-          remote_user: ${{ secrets.deploy-user }}
-          remote_key: ${{ secrets.deploy-key }}
+#      - name: Upload Release Assets
+#        uses: burnett01/rsync-deployments@5.2
+#        with:
+#          switches: -vrptz
+#          path: ./artifact/*
+#          remote_path: /srv/repository/releases/server/${{ inputs.distro }}/versions/jellyfin-ffmpeg/${{ steps.set_version.outputs.no-v }}/
+#          remote_host: ${{ secrets.deploy-host }}
+#          remote_user: ${{ secrets.deploy-user }}
+#          remote_key: ${{ secrets.deploy-key }}

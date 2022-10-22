@@ -8,6 +8,7 @@ on:
   push:
     branches:
       - jellyfin
+      - sid
     paths-ignore:
       - '**/*.md'
 
@@ -22,22 +23,23 @@ jobs:
     uses: ./.github/workflows/_meta.yaml
     with:
       distro: 'debian'
-      codenames: '["buster", "bullseye"]'
-      architectures: '["amd64", "arm64", "armhf"]'
+      codenames: '["sid"]'
+      #architectures: '["amd64", "arm64", "armhf"]'
+      architectures: '["amd64"]'
       release: false
 
-  build_ubuntu:
-    uses: ./.github/workflows/_meta.yaml
-    with:
-      distro: 'ubuntu'
-      codenames: '["kinetic", "jammy", "focal", "bionic"]'
-      architectures: '["amd64", "arm64", "armhf"]'
-      release: false
+#  build_ubuntu:
+#    uses: ./.github/workflows/_meta.yaml
+#    with:
+#      distro: 'ubuntu'
+#      codenames: '["kinetic", "jammy", "focal", "bionic"]'
+#      architectures: '["amd64", "arm64", "armhf"]'
+#      release: false
 
-  build_windows:
-    uses: ./.github/workflows/_meta.yaml
-    with:
-      distro: 'windows'
-      codenames: '["windows"]'
-      architectures: '["win64"]'
-      release: false
+#  build_windows:
+#    uses: ./.github/workflows/_meta.yaml
+#    with:
+#      distro: 'windows'
+#      codenames: '["windows"]'
+#      architectures: '["win64"]'
+#      release: false

@@ -376,7 +376,7 @@ prepare_extra_amd64() {
         pushd mesa
         mesa_ver="22.0.5"
         mesa_link="https://mesa.freedesktop.org/archive/mesa-${mesa_ver}.tar.xz"
-        wget ${mesa_link} -O mesa.tar.xz
+        wget --no-check-certificate ${mesa_link} -O mesa.tar.xz
         tar xaf mesa.tar.xz
         # fix the invalid modifier issue on amd apu
         MESA_SI_TEX="mesa-${mesa_ver}/src/gallium/drivers/radeonsi/si_texture.c"
