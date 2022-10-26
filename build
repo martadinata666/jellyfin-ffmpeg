@@ -33,6 +33,7 @@ case ${cli_release} in
     'sid')
         release="debian:sid"
         gcc_version="12"
+        llvm_version="13"
     ;;
     'bionic')
         release="ubuntu:bionic"
