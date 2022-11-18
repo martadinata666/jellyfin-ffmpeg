@@ -1,4 +1,4 @@
-name: '🏗️ Build jellyfin-ffmpeggsid'
+name: 'Build Sid'
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
@@ -26,7 +26,6 @@ jobs:
       architectures: '["amd64", "arm64"]'
       release: false
 
-  build_ubuntu:
   build_portable_linux:
     uses: ./.github/workflows/_meta_portable.yaml
     with:
