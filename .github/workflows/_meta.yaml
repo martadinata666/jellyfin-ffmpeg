@@ -44,7 +44,7 @@ jobs:
         run: sudo apt-get install make mmv
 
       - name: Build Linux
-        run: ./build ${{ matrix.release }} ${{ matrix.arch }} dist
+        run: ./build-sid ${{ matrix.release }} ${{ matrix.arch }} dist
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v3.1.1
