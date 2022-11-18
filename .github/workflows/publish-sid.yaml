@@ -1,0 +1,22 @@
+name: '🚀 Build and Publish jellyfin-ffmpeg Sid'
+
+on:
+  release:
+    types:
+      - released
+
+jobs:
+  build_publish_debian:
+    uses: ./.github/workflows/_meta.yaml
+    with:
+      distro: 'debian'
+      codenames: '["sid"]'
+      architectures: '["amd64", "arm64"]'
+      release: true
+
+  build_publish_linux_portable:
+    uses: ./.github/workflows/_meta_portable.yaml
+    with:
+      os: 'linux'
+      architectures: '["amd64", "arm64"]'
+      release: true
