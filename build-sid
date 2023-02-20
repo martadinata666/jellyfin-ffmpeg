@@ -10,6 +10,8 @@ usage() {
     echo -e " * focal"
     echo -e " * jammy"
     echo -e " * kinetic"
+    echo -e " * bookworm"
+    echo -e " * sid"
 }
 
 if [[ -z ${1} ]]; then
@@ -21,7 +23,7 @@ cli_release="${1}"
 case ${cli_release} in
     'sid')
         release="debian:sid"
-        gcc_version="10"
+        gcc_version="12"
         llvm_version="15"
     ;;
     *)
