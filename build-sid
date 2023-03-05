@@ -73,7 +73,7 @@ cleanup() {
 trap cleanup EXIT INT
 
 # Generate Dockerfile
-make -f Dockerfile.make DISTRO=${release} GCC_VER=${gcc_version} LLVM_VER=${llvm_version} ARCH=${arch}
+make -f Dockerfile.make DISTRO=sid GCC_VER=${gcc_version} LLVM_VER=${llvm_version} ARCH=${arch}
 # Set up the build environment docker image
 docker build . -t "${image_name}"
 # Build the APKs and copy out to ${package_temporary_dir}
