@@ -103,7 +103,7 @@ jobs:
             mkdir -p /srv/repository/releases/ffmpeg/${{ steps.set_version.outputs.no-v }}/
 
       - name: Upload Release Assets
-        uses: burnett01/rsync-deployments@5.2.1
+        uses: burnett01/rsync-deployments@5.2.2
         with:
           switches: -vrptz
           path: ./artifact/*
