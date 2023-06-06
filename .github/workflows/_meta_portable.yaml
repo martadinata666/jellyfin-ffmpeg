@@ -91,23 +91,4 @@ jobs:
             ./artifact/**/*.zip
             ./artifact/**/*.tar.xz
             ./artifact/**/*.sha256sum
-
-      - name: Make Sure FFmpeg Directory Exists
-        uses: appleboy/ssh-action@v0.1.10
-        with:
-          host: ${{ secrets.deploy-host }}
-          username: ${{ secrets.deploy-user }}
-          key: ${{ secrets.deploy-key }}
-          script_stop: true
-          script: |-
-            mkdir -p /srv/repository/releases/ffmpeg/${{ steps.set_version.outputs.no-v }}/
-
-      - name: Upload Release Assets
-        uses: burnett01/rsync-deployments@5.2.2
-        with:
-          switches: -vrptz
-          path: ./artifact/*
-          remote_path: /srv/repository/releases/ffmpeg/${{ steps.set_version.outputs.no-v }}/
-          remote_host: ${{ secrets.deploy-host }}
-          remote_user: ${{ secrets.deploy-user }}
-          remote_key: ${{ secrets.deploy-key }}
+            
