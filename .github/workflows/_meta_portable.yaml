@@ -38,7 +38,7 @@ jobs:
         run: ./build-${{ inputs.os }}-${{ matrix.arch }} ./dist
 
       - name: Upload Artifacts
-        uses: actions/upload-artifact@v3.1.1
+        uses: actions/upload-artifact@v3.1.3
         with:
           name: ${{ inputs.os }}-${{ matrix.arch }}-portable
           path: dist
